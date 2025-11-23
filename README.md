@@ -2,6 +2,13 @@
 
 Shitbox is a nodejs server that needs to run on a Windows host and send messages to another Windows computer.
 
+To set up, clone the repo and open it in CMD. Make sure you have NodeJS installed.
+Then, modify the config file and add the IPs of your computers and edit the branding if you want.
+Install dependencies with
 ```
 npm install
+```
+then run with
+```
+npm serve
 ```
