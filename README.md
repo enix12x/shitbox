@@ -13,3 +13,4 @@ then run with
 npm serve
 ```
 You can also use the included batch script (launch.bat) or launchl.bat for legacy Windows versions.
+Additionally, if you want a better frontend, check out https://github.com/enix12x/shitbox-panel
