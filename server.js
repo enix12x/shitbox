@@ -3,11 +3,13 @@ const fs = require('fs');
 const path = require('path');
 const { exec } = require('child_process');
 const commentJson = require('comment-json');
+const cors = require('cors');
 
 const app = express();
-const PORT = 3000;
 
+app.use(cors());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(express.static('public'));
 
 let config;
@@ -18,6 +20,40 @@ try {
   console.error('Error loading config.json:', error);
   process.exit(1);
 }
+
+const PORT = config.port || 3000;
+
+// API endpoint for frontend to get config
+app.get('/api/config', (req, res) => {
+  res.json({
+    branding: config.branding,
+    computers: config.computers
+  });
+});
+
+// API endpoint for frontend to send messages
+app.post('/api/send', (req, res) => {
+  const { computer, message } = req.body;
+  
+  if (!computer || !message) {
+    return res.status(400).json({ error: 'Missing computer or message' });
+  }
+  
+  const computerInfo = config.computers.find(c => c.ip === computer);
+  const computerName = computerInfo ? computerInfo.name : computer;
+  
+  const command = `msg * /SERVER:${computer} ${message}`;
+  
+  exec(command, (error, stdout, stderr) => {
+    if (error) {
+      console.error(`Error executing command: ${error}`);
+      return res.status(500).json({ error: error.message });
+    }
+    
+    console.log(`Message sent to ${computerName} (${computer}): ${message}`);
+    res.json({ success: true, message: `Message sent to ${computerName}!` });
+  });
+});
 
 app.get('/', (req, res) => {
   try {

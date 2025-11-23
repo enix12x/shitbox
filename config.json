@@ -1,6 +1,8 @@
 {
   // The branding text displayed on the website
   "branding": "shitbox",
+  // Port the server runs on
+  "port": 3000,
   // List of computers that can receive messages
   "computers": [
     {
