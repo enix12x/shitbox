@@ -1,0 +1,14 @@
+{
+  "name": "shitbox",
+  "version": "1.0.0",
+  "description": "website that send message to windows computers using the msg command",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "comment-json": "^4.2.3"
+  }
+}
+

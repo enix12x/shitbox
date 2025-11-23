@@ -1,0 +1,19 @@
+<html>
+<head>
+<title>{{BRANDING}}</title>
+</head>
+<body>
+<h1>{{BRANDING}}</h1>
+<form method="POST" action="/send">
+<select name="computer">
+<option value="">choose a computer</option>
+{{COMPUTER_OPTIONS}}
+</select>
+<br>
+<input type="text" name="message">
+<br>
+<input type="submit" value="Send">
+</form>
+</body>
+</html>
+

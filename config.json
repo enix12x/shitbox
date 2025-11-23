@@ -1,0 +1,18 @@
+{
+  // The branding text displayed on the website
+  "branding": "shitbox",
+  // List of computers that can receive messages
+  "computers": [
+    {
+      // Display name shown on the website
+      "name": "Computer 1",
+      // IP address used in the msg command
+      "ip": "192.168.1.100"
+    },
+    {
+      "name": "Computer 2",
+      "ip": "192.168.1.101"
+    }
+  ]
+}
+
