@@ -12,3 +12,4 @@ then run with
 ```
 npm serve
 ```
+You can also use the included batch script (launch.bat) or launchl.bat for legacy Windows versions.
