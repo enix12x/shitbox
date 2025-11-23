@@ -23,7 +23,7 @@ try {
 
 const PORT = config.port || 3000;
 
-// API endpoint for frontend to get config
+// stuff for new frontend
 app.get('/api/config', (req, res) => {
   res.json({
     branding: config.branding,
@@ -31,7 +31,7 @@ app.get('/api/config', (req, res) => {
   });
 });
 
-// API endpoint for frontend to send messages
+// more new frontend stuff
 app.post('/api/send', (req, res) => {
   const { computer, message } = req.body;
   
